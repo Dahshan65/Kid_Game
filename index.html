@@ -1,0 +1,580 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هيا نتعلم الإنجليزية للأطفال</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: linear-gradient(135deg, #e9fff2, #fff4d6);
+  color: #243c30;
+}
+
+.container {
+  width: 100%;
+  max-width: 760px;
+  margin: auto;
+  padding: 16px;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #16845d, #36b981);
+  padding: 25px 15px;
+  border-radius: 25px;
+}
+
+.header .emoji {
+  font-size: 50px;
+}
+
+.header h1 {
+  margin: 8px 0;
+  font-size: 30px;
+}
+
+.header p {
+  margin: 8px 0 0;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.stat {
+  background: white;
+  border-radius: 14px;
+  padding: 12px 4px;
+  flex: 1;
+  text-align: center;
+  border: 1px solid #d9eadf;
+}
+
+.stat strong {
+  display: block;
+  font-size: 21px;
+  color: #16845d;
+  margin-top: 5px;
+}
+
+.progress {
+  background: #d9e9df;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: #ffc83d;
+  transition: width 0.3s;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px #204e3310;
+}
+
+.category {
+  color: #78877e;
+  font-size: 14px;
+}
+
+.word {
+  font-size: clamp(40px, 9vw, 60px);
+  font-weight: bold;
+  color: #16845d;
+  margin: 18px 0 8px;
+  direction: ltr;
+}
+
+.picture {
+  font-size: 65px;
+  margin: 12px;
+}
+
+.listen-btn {
+  background: #fff1c4;
+  border: 2px solid #ffdb72;
+  border-radius: 15px;
+  padding: 14px 22px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.question {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 24px 0 15px;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.answer-btn {
+  background: #f8fcf9;
+  border: 2px solid #d9e8de;
+  border-radius: 14px;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  min-height: 54px;
+}
+
+.answer-btn:hover:not(:disabled) {
+  background: #eaf8ef;
+  border-color: #16845d;
+}
+
+.answer-btn:disabled {
+  cursor: default;
+}
+
+.answer-btn.correct {
+  background: #dcf8e5;
+  border-color: #239b58;
+  color: #126735;
+  font-weight: bold;
+}
+
+.answer-btn.wrong {
+  background: #fff0f0;
+  border-color: #dc6262;
+  color: #a52a2a;
+}
+
+.feedback {
+  min-height: 36px;
+  margin: 17px 0 5px;
+  font-size: 22px;
+  font-weight: bold;
+  direction: ltr;
+}
+
+.next-btn, .restart-btn {
+  background: #16845d;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 24px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.next-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.footer {
+  text-align: center;
+  color: #75847b;
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+@media (min-width: 550px) {
+  .answers {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .answer-btn:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="emoji">🦉📚</div>
+    <h1>هيا نتعلم الإنجليزية!</h1>
+    <p>استمع إلى الكلمة واختر معناها الصحيح</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      السؤال
+      <strong id="questionCount">1 / 100</strong>
+    </div>
+
+    <div class="stat">
+      النقاط
+      <strong id="score">0</strong>
+    </div>
+
+    <div class="stat">
+      المرحلة
+      <strong id="stage">1</strong>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <section class="card" id="quizCard">
+
+    <div class="category" id="category">كلمات يومية</div>
+
+    <div class="word" id="word">Apple</div>
+
+    <div class="picture" id="picture">🍎</div>
+
+    <button class="listen-btn" id="listenBtn" type="button">
+      🔊 استمع إلى الكلمة
+    </button>
+
+    <div class="question">
+      ما معنى الكلمة باللغة العربية؟
+    </div>
+
+    <div class="answers" id="answers"></div>
+
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+
+    <button class="next-btn" id="nextBtn" type="button" disabled>
+      السؤال التالي ←
+    </button>
+
+  </section>
+
+  <section class="card hidden" id="resultCard">
+    <div style="font-size:65px">🏆🌟</div>
+    <h2>أحسنت يا بطل!</h2>
+    <p id="finalScore"></p>
+    <p id="finalMessage"></p>
+
+    <button class="restart-btn" id="restartBtn" type="button">
+      🔄 العب مرة أخرى
+    </button>
+  </section>
+
+  <div class="footer">
+    إعداد وبرمجة: وائل دهشان
+  </div>
+
+</div>
+
+<script>
+const words = [
+["Apple","تفاحة","🍎","طعام"],
+["Book","كتاب","📘","أشياء"],
+["Cat","قطة","🐱","حيوانات"],
+["Dog","كلب","🐶","حيوانات"],
+["House","منزل","🏠","أماكن"],
+["School","مدرسة","🏫","أماكن"],
+["Water","ماء","💧","طعام وشراب"],
+["Milk","حليب","🥛","طعام وشراب"],
+["Bread","خبز","🍞","طعام وشراب"],
+["Sun","شمس","☀️","الطبيعة"],
+["Moon","قمر","🌙","الطبيعة"],
+["Star","نجمة","⭐","الطبيعة"],
+["Tree","شجرة","🌳","الطبيعة"],
+["Flower","زهرة","🌸","الطبيعة"],
+["Bird","طائر","🐦","حيوانات"],
+["Fish","سمكة","🐟","حيوانات"],
+["Horse","حصان","🐴","حيوانات"],
+["Lion","أسد","🦁","حيوانات"],
+["Elephant","فيل","🐘","حيوانات"],
+["Rabbit","أرنب","🐰","حيوانات"],
+["Red","أحمر","🟥","الألوان"],
+["Blue","أزرق","🟦","الألوان"],
+["Green","أخضر","🟩","الألوان"],
+["Yellow","أصفر","🟨","الألوان"],
+["Black","أسود","⬛","الألوان"],
+["White","أبيض","⬜","الألوان"],
+["One","واحد","1️⃣","الأرقام"],
+["Two","اثنان","2️⃣","الأرقام"],
+["Three","ثلاثة","3️⃣","الأرقام"],
+["Ten","عشرة","🔟","الأرقام"],
+["Mother","أم","👩","العائلة"],
+["Father","أب","👨","العائلة"],
+["Sister","أخت","👧","العائلة"],
+["Brother","أخ","👦","العائلة"],
+["Baby","رضيع","👶","العائلة"],
+["Friend","صديق","🤝","الأشخاص"],
+["Teacher","معلّم","🧑‍🏫","الأشخاص"],
+["Doctor","طبيب","🧑‍⚕️","الأشخاص"],
+["Boy","ولد","🧒","الأشخاص"],
+["Girl","بنت","👧","الأشخاص"],
+["Head","رأس","🙂","الجسم"],
+["Eye","عين","👁️","الجسم"],
+["Ear","أذن","👂","الجسم"],
+["Nose","أنف","👃","الجسم"],
+["Mouth","فم","👄","الجسم"],
+["Hand","يد","✋","الجسم"],
+["Foot","قدم","🦶","الجسم"],
+["Heart","قلب","❤️","الجسم"],
+["Happy","سعيد","😄","الصفات"],
+["Sad","حزين","😢","الصفات"],
+["Big","كبير","🐘","الصفات"],
+["Small","صغير","🐭","الصفات"],
+["Hot","حار","🔥","الصفات"],
+["Cold","بارد","🧊","الصفات"],
+["Fast","سريع","🚀","الصفات"],
+["Slow","بطيء","🐢","الصفات"],
+["Good","جيد","👍","الصفات"],
+["Bad","سيئ","👎","الصفات"],
+["Beautiful","جميل","🌷","الصفات"],
+["Strong","قوي","💪","الصفات"],
+["Run","يركض","🏃","أفعال"],
+["Walk","يمشي","🚶","أفعال"],
+["Eat","يأكل","🍽️","أفعال"],
+["Drink","يشرب","🥤","أفعال"],
+["Sleep","ينام","😴","أفعال"],
+["Read","يقرأ","📖","أفعال"],
+["Write","يكتب","✍️","أفعال"],
+["Speak","يتكلم","🗣️","أفعال"],
+["Listen","يستمع","👂","أفعال"],
+["Look","ينظر","👀","أفعال"],
+["Play","يلعب","⚽","أفعال"],
+["Jump","يقفز","🤸","أفعال"],
+["Swim","يسبح","🏊","أفعال"],
+["Sing","يغني","🎤","أفعال"],
+["Dance","يرقص","💃","أفعال"],
+["Open","يفتح","🚪","أفعال"],
+["Close","يغلق","🔒","أفعال"],
+["Go","يذهب","➡️","أفعال"],
+["Come","يأتي","👋","أفعال"],
+["Make","يصنع","🛠️","أفعال"],
+["Car","سيارة","🚗","المواصلات"],
+["Bus","حافلة","🚌","المواصلات"],
+["Train","قطار","🚆","المواصلات"],
+["Airplane","طائرة","✈️","المواصلات"],
+["Ball","كرة","⚽","الألعاب"],
+["Doll","دمية","🪆","الألعاب"],
+["Chair","كرسي","🪑","أشياء"],
+["Table","طاولة","🪵","أشياء"],
+["Door","باب","🚪","أشياء"],
+["Window","نافذة","🪟","أشياء"],
+["Morning","صباح","🌅","الوقت"],
+["Night","ليل","🌃","الوقت"],
+["Today","اليوم","📅","الوقت"],
+["Tomorrow","غدًا","➡️","الوقت"],
+["Rain","مطر","🌧️","الطقس"],
+["Snow","ثلج","❄️","الطقس"],
+["Playground","ملعب","🛝","أماكن"],
+["Garden","حديقة","🌻","أماكن"],
+["Help","يساعد","🫶","أفعال"],
+["Thank you","شكرًا لك","🙏","عبارات"]
+];
+
+let order = [];
+let current = 0;
+let score = 0;
+let answered = false;
+
+const el = id => document.getElementById(id);
+
+function shuffle(array) {
+  const result = [...array];
+
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result;
+}
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.85;
+  utterance.pitch = 1.05;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function renderQuestion() {
+  answered = false;
+
+  const item = words[order[current]];
+
+  el("questionCount").textContent =
+    (current + 1) + " / " + words.length;
+
+  el("score").textContent = score;
+  el("stage").textContent = Math.floor(current / 20) + 1;
+
+  el("progressBar").style.width =
+    (current / words.length * 100) + "%";
+
+  el("word").textContent = item[0];
+  el("picture").textContent = item[2];
+  el("category").textContent = item[3];
+
+  el("feedback").textContent = "";
+  el("nextBtn").disabled = true;
+
+  el("nextBtn").textContent =
+    current === words.length - 1
+      ? "عرض النتيجة 🏆"
+      : "السؤال التالي ←";
+
+  // اختيار إجابتين خاطئتين، بالإضافة إلى الإجابة الصحيحة
+  const wrong = shuffle(
+    words
+      .map((word, index) => index)
+      .filter(index => index !== order[current])
+  ).slice(0, 2);
+
+  const options = shuffle([order[current], ...wrong]);
+
+  el("answers").innerHTML = "";
+
+  options.forEach(index => {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "answer-btn";
+    button.textContent = words[index][1];
+
+    button.addEventListener("click", () => {
+      checkAnswer(button, index);
+    });
+
+    el("answers").appendChild(button);
+  });
+
+  // نطق الكلمة عند بدء السؤال
+  setTimeout(() => speak(item[0]), 350);
+}
+
+function checkAnswer(button, selectedIndex) {
+  if (answered) return;
+
+  const correctIndex = order[current];
+
+  if (selectedIndex === correctIndex) {
+    answered = true;
+    score++;
+
+    document.querySelectorAll(".answer-btn").forEach(btn => {
+      btn.disabled = true;
+
+      if (btn.textContent === words[correctIndex][1]) {
+        btn.classList.add("correct");
+      }
+    });
+
+    el("feedback").textContent = "Very Good!";
+    el("feedback").style.color = "#16845d";
+
+    el("score").textContent = score;
+    el("nextBtn").disabled = false;
+
+    // التشجيع عند الإجابة الصحيحة
+    speak("Very Good!");
+
+  } else {
+    button.classList.add("wrong");
+    button.disabled = true;
+
+    el("feedback").textContent = "No problem, try again!";
+    el("feedback").style.color = "#bd3737";
+
+    // التشجيع عند الخطأ، مع بقاء السؤال نفسه
+    speak("No problem, try again!");
+  }
+}
+
+function finishQuiz() {
+  el("quizCard").classList.add("hidden");
+  el("resultCard").classList.remove("hidden");
+
+  el("progressBar").style.width = "100%";
+  el("questionCount").textContent = "100 / 100";
+
+  el("finalScore").textContent =
+    "نتيجتك: " + score + " من " + words.length;
+
+  if (score >= 90) {
+    el("finalMessage").textContent =
+      "ممتاز جدًا! أنت نجم اللغة الإنجليزية! 🌟";
+  } else if (score >= 70) {
+    el("finalMessage").textContent =
+      "عمل رائع! استمر في التعلّم! 👏";
+  } else {
+    el("finalMessage").textContent =
+      "أحسنت على المحاولة! العب مرة أخرى لتتعلم أكثر! 💪";
+  }
+
+  speak("Congratulations! You did a great job!");
+}
+
+function startQuiz() {
+  order = shuffle(words.map((_, index) => index));
+
+  current = 0;
+  score = 0;
+  answered = false;
+
+  el("quizCard").classList.remove("hidden");
+  el("resultCard").classList.add("hidden");
+
+  renderQuestion();
+}
+
+el("listenBtn").addEventListener("click", () => {
+  speak(words[order[current]][0]);
+});
+
+el("nextBtn").addEventListener("click", () => {
+  if (!answered) return;
+
+  if (current < words.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+el("restartBtn").addEventListener("click", startQuiz);
+
+startQuiz();
+</script>
+
+</body>
+</html>
+```
