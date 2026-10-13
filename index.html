@@ -3,58 +3,62 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#176b50">
 <title>أبطال الإنجليزية</title>
+
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;width:100%;min-height:100%;font-family:Arial,Tahoma,sans-serif}
+html,body{margin:0;padding:0;width:100%;min-height:100%;font-family:Arial,Tahoma,sans-serif}
 body{background:#e9fff3;color:#19352b}
 button{font-family:inherit;cursor:pointer;touch-action:manipulation}
-.app{width:100%;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;background:linear-gradient(160deg,#e9fff3,#fff8df)}
-.header{width:100%;max-width:650px;text-align:center;background:#176b50;color:white;padding:16px 10px;border-radius:20px}
-.header h1{font-size:clamp(24px,6vw,34px);margin:0 0 7px}
-.header p{margin:0;font-size:16px}
-.panel{width:100%;max-width:650px;margin:14px auto;background:white;border-radius:22px;padding:18px 14px;box-shadow:0 5px 18px #0000000d}
+.app{width:100%;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;background:linear-gradient(160deg,#e9fff3,#fff8df)}
+.header{width:100%;max-width:680px;text-align:center;background:#176b50;color:white;padding:18px 10px;border-radius:20px}
+.header h1{font-size:clamp(26px,7vw,36px);margin:0 0 8px}
+.header p{margin:0;font-size:17px}
+.panel,.question-card,.result{width:100%;max-width:680px;background:white;border-radius:22px;padding:20px 14px;margin:14px auto;box-shadow:0 5px 18px #0000000d}
+.panel h2{text-align:center;color:#176b50;font-size:26px}
+.note{text-align:center;line-height:1.8;color:#52675b;font-size:17px}
 .levels{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
-.level-btn{width:100%;min-height:110px;border:3px solid #cde9d7;border-radius:18px;background:#f5fff8;padding:18px;color:#176b50;font-size:23px;font-weight:bold}
-.level-btn span{display:block;font-size:15px;font-weight:normal;margin-top:10px;color:#425d4c}
+.level-btn{width:100%;min-height:125px;border:3px solid #cde9d7;border-radius:20px;background:#f5fff8;padding:20px 12px;color:#176b50;font-size:26px;font-weight:bold}
+.level-btn span{display:block;font-size:17px;font-weight:normal;margin-top:10px;line-height:1.5}
+.level-btn.easy{background:#efffed;border-color:#8bd27b;color:#28702a}
+.level-btn.medium{background:#eff8ff;border-color:#a6d5ef;color:#176b8d}
 .level-btn.hard{background:#fff4e7;border-color:#f0d0a9;color:#985016}
-.level-btn:disabled{opacity:.5;cursor:not-allowed}
-.note{text-align:center;line-height:1.8;color:#52675b}
-.stats{width:100%;max-width:650px;display:flex;gap:7px;margin:12px 0}
-.stat{flex:1;text-align:center;background:white;border-radius:13px;padding:10px 3px;font-size:14px}
-.stat strong{display:block;font-size:21px;color:#176b50;margin-top:5px}
-.progress-track{width:100%;max-width:650px;height:9px;background:#d4e9dc;border-radius:20px;overflow:hidden;margin-bottom:12px}
+.level-btn:disabled{opacity:.55;cursor:not-allowed}
+.stats{width:100%;max-width:680px;display:flex;gap:7px;margin:8px 0}
+.stat{flex:1;text-align:center;background:white;border-radius:14px;padding:11px 3px;font-size:15px}
+.stat strong{display:block;font-size:22px;color:#176b50;margin-top:5px}
+.progress-track{width:100%;max-width:680px;height:11px;background:#d4e9dc;border-radius:20px;overflow:hidden;margin:5px 0 12px}
 .progress-bar{height:100%;width:0;background:#ffb52e;transition:width .3s}
-.question-card{width:100%;max-width:650px;flex:1;background:white;border-radius:22px;padding:18px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 5px 18px #0000000d}
-.level-label{background:#e5f7eb;color:#176b50;border-radius:20px;padding:7px 16px;font-weight:bold;margin-bottom:12px}
-.emoji{font-size:clamp(42px,11vw,68px);margin-bottom:8px}
-.instruction{font-size:16px;color:#60766a;line-height:1.6;margin:0 0 8px}
-.word{direction:ltr;font-size:clamp(36px,10vw,58px);font-weight:900;color:#176b50;overflow-wrap:anywhere;margin:8px 0 15px}
-.speak-btn{width:100%;max-width:400px;min-height:54px;border:0;border-radius:15px;background:#e3f5ff;color:#125a87;font-size:18px;font-weight:bold;margin-bottom:18px}
-.answers-title{font-size:18px;font-weight:bold;margin-bottom:10px}
-.answers{display:grid;grid-template-columns:1fr;gap:9px;width:100%}
-.answer{width:100%;min-height:54px;border:2px solid #dceee3;border-radius:15px;background:#f8fffb;color:#243b30;font-size:20px;font-weight:bold;padding:12px}
+.question-card{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.level-label{background:#e5f7eb;color:#176b50;border-radius:20px;padding:9px 18px;font-size:17px;font-weight:bold;margin-bottom:12px}
+.emoji{font-size:clamp(48px,12vw,76px);margin:5px}
+.instruction{font-size:18px;color:#60766a;line-height:1.6;margin:6px 0}
+.word{direction:ltr;font-size:clamp(40px,11vw,64px);font-weight:900;color:#176b50;overflow-wrap:anywhere;margin:10px 0 18px}
+.speak-btn{width:100%;max-width:460px;min-height:68px;border:0;border-radius:18px;background:#dff3ff;color:#125a87;font-size:23px;font-weight:bold;margin-bottom:20px}
+.answers-title{font-size:22px;font-weight:bold;margin-bottom:12px}
+.answers{display:grid;grid-template-columns:1fr;gap:12px;width:100%}
+.answer{width:100%;min-height:72px;border:3px solid #dceee3;border-radius:18px;background:#f8fffb;color:#243b30;font-size:24px;font-weight:bold;padding:15px}
 .answer.correct{background:#c9f7d7;border-color:#24a65a;color:#12612d}
 .answer.wrong{background:#ffe1df;border-color:#e45a54;color:#a62b25}
 .answer:disabled{opacity:1;cursor:default}
-.feedback{width:100%;min-height:32px;text-align:center;font-size:19px;font-weight:bold;margin:12px 0 2px;line-height:1.6}
+.feedback{width:100%;min-height:35px;text-align:center;font-size:22px;font-weight:bold;margin:14px 0 4px;line-height:1.6}
 .feedback.good{color:#168343}
 .feedback.try{color:#bf6330}
-.next-btn,.restart-btn,.back-btn{width:100%;min-height:55px;border:0;border-radius:15px;background:#ffb52e;color:#49300a;font-size:19px;font-weight:bold;padding:12px;margin-top:9px}
+.next-btn,.restart-btn,.back-btn{width:100%;min-height:68px;border:0;border-radius:18px;background:#ffb52e;color:#49300a;font-size:23px;font-weight:bold;padding:14px;margin-top:10px}
 .next-btn:disabled{opacity:.45;cursor:not-allowed}
 .back-btn{background:#e5f2e9;color:#176b50}
-.footer{text-align:center;padding:12px 0 3px;font-size:13px;color:#60766a}
+.footer{width:100%;max-width:680px;text-align:center;padding:18px 5px 8px;font-size:17px;font-weight:bold;color:#176b50}
 .hidden{display:none!important}
-.result{width:100%;max-width:650px;text-align:center;background:white;border-radius:22px;padding:25px 16px;margin:auto 0;line-height:1.8}
-.result .big{font-size:65px}
-.result h2{font-size:28px;color:#176b50}
-.result p{font-size:19px}
-@media(min-width:700px){.levels{grid-template-columns:1fr 1fr}.app{padding:20px}.question-card{padding:24px}}
-@media(max-height:720px){.header{padding:9px}.header h1{font-size:23px}.stats{margin:7px 0}.stat{padding:6px 3px}.question-card{padding:10px}.emoji{font-size:36px;margin:0}.word{font-size:38px;margin:4px 0 8px}.speak-btn{min-height:43px;margin-bottom:8px}.answer{min-height:43px;padding:7px}.answers{gap:6px}.feedback{margin:5px 0}}
+.result{text-align:center;margin:auto 0;line-height:1.8}
+.result .big{font-size:75px}
+.result h2{font-size:30px;color:#176b50}
+.result p{font-size:21px}
+@media(min-width:700px){.levels{grid-template-columns:1fr}.app{padding:20px}.question-card{padding:28px}}
 </style>
 </head>
+
 <body>
 <div class="app">
 <header class="header">
@@ -63,19 +67,27 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 </header>
 
 <section id="home" class="panel">
-<h2 style="text-align:center;color:#176b50">اختر المرحلة</h2>
+<h2>اختر المرحلة</h2>
 <p class="note">استمع إلى الكلمة الإنجليزية، ثم اختر معناها الصحيح من بين ثلاثة خيارات.</p>
+
 <div class="levels">
-<button class="level-btn" onclick="startLevel(0)">
-📗 المرحلة المتوسطة
-<span>100 سؤال · كلمات شائعة وأفعال يومية</span>
+<button class="level-btn easy" onclick="startLevel(0)">
+🟢 المرحلة السهلة
+<span>100 سؤال · كلمات أساسية للمبتدئين</span>
 </button>
-<button class="level-btn hard" id="hardBtn" onclick="startLevel(1)" disabled>
+
+<button class="level-btn medium" id="mediumBtn" onclick="startLevel(1)" disabled>
+📗 المرحلة المتوسطة 🔒
+<span id="mediumNote">تُفتح بعد إنهاء المرحلة السهلة</span>
+</button>
+
+<button class="level-btn hard" id="hardBtn" onclick="startLevel(2)" disabled>
 📕 المرحلة الصعبة 🔒
 <span id="hardNote">تُفتح بعد إنهاء المرحلة المتوسطة</span>
 </button>
 </div>
-<p class="note">عند الخطأ ستبقى الكلمة نفسها حتى تحاول مرة أخرى.</p>
+
+<p class="note">🌟 حاول حتى تختار الإجابة الصحيحة. لا توجد عقوبة عند الخطأ!</p>
 </section>
 
 <section id="stats" class="stats hidden">
@@ -83,17 +95,23 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 <div class="stat">الصحيحة<strong id="score">0</strong></div>
 <div class="stat">الأخطاء<strong id="mistakes">0</strong></div>
 </section>
-<div id="progressTrack" class="progress-track hidden"><div id="progressBar" class="progress-bar"></div></div>
+
+<div id="progressTrack" class="progress-track hidden">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
 <main id="questionCard" class="question-card hidden">
-<div class="level-label" id="levelLabel">المرحلة المتوسطة</div>
+<div class="level-label" id="levelLabel">المرحلة السهلة</div>
 <div class="emoji" id="emoji">🌟</div>
 <p class="instruction">استمع إلى الكلمة، ثم اختر معناها بالعربية</p>
 <div class="word" id="word">Apple</div>
+
 <button class="speak-btn" onclick="speakWord()">🔊 استمع إلى الكلمة</button>
+
 <div class="answers-title">ما معنى هذه الكلمة؟ 🤔</div>
 <div id="answers" class="answers"></div>
 <div id="feedback" class="feedback" aria-live="polite"></div>
+
 <button id="nextBtn" class="next-btn" onclick="nextQuestion()" disabled>السؤال التالي ⬅️</button>
 <button class="back-btn" onclick="goHome()">العودة إلى المراحل</button>
 </main>
@@ -106,119 +124,229 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 <button class="back-btn" onclick="goHome()">العودة إلى المراحل</button>
 </section>
 
-<footer class="footer">إعداد وبرمجة: وائل دهشان</footer>
+<footer class="footer">تصميم وبرمجة: وائل دهشان</footer>
 </div>
 
 <script>
-const mediumRaw = `
+function parseWords(raw){
+  return raw.trim().split("\n").map(line=>{
+    const p=line.split("|");
+    return {en:p[0].trim(),ar:p[1].trim()};
+  });
+}
+
+const easyRaw=`
 Apple|تفاحة
 Book|كتاب
-School|مدرسة
-Teacher|معلّم
-Student|طالب
-Pen|قلم
-Pencil|قلم رصاص
-Table|طاولة
-Chair|كرسي
-Door|باب
-Window|نافذة
-House|منزل
-Car|سيارة
-Bus|حافلة
-Train|قطار
-Airplane|طائرة
-Bicycle|دراجة
-Road|طريق
-Tree|شجرة
-Flower|زهرة
+Cat|قطة
+Dog|كلب
 Sun|شمس
 Moon|قمر
 Star|نجمة
-Sky|سماء
-Rain|مطر
+Ball|كرة
+Boy|ولد
+Girl|بنت
+Man|رجل
+Woman|امرأة
+Baby|رضيع
 Water|ماء
 Milk|حليب
 Bread|خبز
-Cheese|جبن
 Egg|بيضة
-Banana|موز
-Orange|برتقال
-Grapes|عنب
-Strawberry|فراولة
-Chicken|دجاج
-Fish|سمك
 Rice|أرز
-Breakfast|إفطار
-Dinner|عشاء
-Watermelon|بطيخ
-Cat|قطة
-Dog|كلب
-Horse|حصان
-Cow|بقرة
-Sheep|خروف
-Lion|أسد
-Elephant|فيل
-Monkey|قرد
-Rabbit|أرنب
-Bird|طائر
-Duck|بطة
-Turtle|سلحفاة
-Doctor|طبيب
-Nurse|ممرض
-Farmer|مزارع
-Driver|سائق
-Father|أب
+Cup|كوب
+Plate|صحن
+Spoon|ملعقة
+Fork|شوكة
+Door|باب
+Key|مفتاح
+Bed|سرير
+Room|غرفة
+House|منزل
+Car|سيارة
+Bus|حافلة
+Bookshop|مكتبة بيع الكتب
+School|مدرسة
+Class|صف
+Teacher|معلم
+Student|طالب
+Pen|قلم
+Pencil|قلم رصاص
+Bag|حقيبة
+Desk|مكتب
+Paper|ورق
+Hand|يد
+Head|رأس
+Eye|عين
+Ear|أذن
+Nose|أنف
+Mouth|فم
+Hair|شعر
+Face|وجه
+Arm|ذراع
+Leg|ساق
+Foot|قدم
+Finger|إصبع
 Mother|أم
+Father|أب
 Brother|أخ
 Sister|أخت
 Friend|صديق
 Family|عائلة
-Happy|سعيد
-Sad|حزين
-Angry|غاضب
-Tired|متعب
-Hungry|جائع
-Thirsty|عطشان
+Baby|طفل رضيع
+Grandmother|جدة
+Grandfather|جد
+Red|أحمر
+Blue|أزرق
+Green|أخضر
+Yellow|أصفر
+Black|أسود
+White|أبيض
+Pink|وردي
+Orange|برتقالي
+One|واحد
+Two|اثنان
+Three|ثلاثة
+Four|أربعة
+Five|خمسة
+Six|ستة
+Seven|سبعة
+Eight|ثمانية
+Nine|تسعة
+Ten|عشرة
 Big|كبير
 Small|صغير
-Fast|سريع
-Slow|بطيء
+Good|جيد
+Bad|سيئ
+Happy|سعيد
+Sad|حزين
 Hot|حار
 Cold|بارد
-Beautiful|جميل
-Strong|قوي
-Clean|نظيف
-Open|يفتح
-Close|يغلق
-Read|يقرأ
-Write|يكتب
-Speak|يتكلم
-Listen|يستمع
+Fast|سريع
+Slow|بطيء
 Eat|يأكل
 Drink|يشرب
 Sleep|ينام
-Wake up|يستيقظ
-Walk|يمشي
+Read|يقرأ
+Write|يكتب
 Run|يركض
-Jump|يقفز
+Walk|يمشي
+Sit|يجلس
+Stand|يقف
 Play|يلعب
-Sing|يغني
-Dance|يرقص
-Draw|يرسم
-Swim|يسبح
-Cook|يطبخ
-Help|يساعد
-Learn|يتعلم
-Think|يفكر
+Open|يفتح
+Close|يغلق
 `.trim();
 
-const hardRaw = `
+const mediumRaw=`
+Teacher|معلم
+Student|طالب
+Library|مكتبة
+Garden|حديقة
+Kitchen|مطبخ
+Bedroom|غرفة نوم
+Bathroom|حمام
+Window|نافذة
+Mirror|مرآة
+Clock|ساعة
+Morning|صباح
+Evening|مساء
+Afternoon|بعد الظهر
+Night|ليل
+Today|اليوم
+Tomorrow|غدًا
+Yesterday|أمس
+Breakfast|إفطار
+Lunch|غداء
+Dinner|عشاء
+Vegetable|خضار
+Fruit|فاكهة
+Potato|بطاطا
+Tomato|بندورة
+Carrot|جزر
+Onion|بصل
+Cheese|جبن
+Butter|زبدة
+Sugar|سكر
+Salt|ملح
+Chicken|دجاج
+Meat|لحم
+Fish|سمك
+Horse|حصان
+Sheep|خروف
+Cow|بقرة
+Rabbit|أرنب
+Monkey|قرد
+Elephant|فيل
+Giraffe|زرافة
+Turtle|سلحفاة
+Duck|بطة
+Eagle|نسر
+Forest|غابة
+Mountain|جبل
+River|نهر
+Sea|بحر
+Island|جزيرة
+Beach|شاطئ
+Village|قرية
+City|مدينة
+Country|دولة
+Bridge|جسر
+Station|محطة
+Airport|مطار
+Ticket|تذكرة
+Journey|رحلة
+Travel|يسافر
+Arrive|يصل
+Leave|يغادر
+Buy|يشتري
+Sell|يبيع
+Pay|يدفع
+Choose|يختار
+Bring|يحضر
+Carry|يحمل
+Build|يبني
+Break|يكسر
+Repair|يصلح
+Remember|يتذكر
+Forget|ينسى
+Understand|يفهم
+Explain|يشرح
+Ask|يسأل
+Answer|يجيب
+Learn|يتعلم
+Teach|يعلم
+Practice|يتدرب
+Improve|يحسن
+Beautiful|جميل
+Careful|حذر
+Clever|ذكي
+Friendly|ودود
+Kind|لطيف
+Polite|مهذب
+Honest|صادق
+Quiet|هادئ
+Noisy|صاخب
+Healthy|صحي
+Strong|قوي
+Weak|ضعيف
+Early|مبكر
+Late|متأخر
+Always|دائمًا
+Usually|عادة
+Sometimes|أحيانًا
+Never|أبدًا
+Together|معًا
+Different|مختلف
+`.trim();
+
+const hardRaw=`
 Achieve|يحقق
 Admire|يعجب بـ
 Advantage|ميزة
 Adventure|مغامرة
 Advice|نصيحة
-Afford|يستطيع تحمّل التكلفة
+Afford|يستطيع تحمل التكلفة
 Ancient|قديم
 Anxious|قلق
 Apologize|يعتذر
@@ -232,7 +360,7 @@ Benefit|فائدة
 Brave|شجاع
 Brief|موجز
 Calculate|يحسب
-Challenge|تحدٍّ
+Challenge|تحد
 Circumstance|ظرف
 Combine|يدمج
 Comfortable|مريح
@@ -240,33 +368,33 @@ Compare|يقارن
 Compete|يتنافس
 Complex|معقد
 Concentrate|يركز
-Concern|قلق أو اهتمام
+Concern|اهتمام
 Confident|واثق
 Confuse|يربك
 Consider|يعتبر
 Convenient|ملائم
 Courage|شجاعة
 Curious|فضولي
-Decline|يرفض أو يتراجع
+Decline|يرفض
 Deliberate|متعمد
 Demand|يطلب بإلحاح
 Depend|يعتمد
 Describe|يصف
 Determine|يحدد
-Develop|يطوّر
+Develop|يطور
 Difference|اختلاف
 Difficult|صعب
-Disappoint|يخيّب الأمل
+Disappoint|يخيب الأمل
 Discover|يكتشف
-Efficient|فعّال
-Encourage|يشجّع
+Efficient|فعال
+Encourage|يشجع
 Environment|بيئة
 Establish|يؤسس
-Estimate|يقدّر
+Estimate|يقدر
 Evidence|دليل
 Examine|يفحص
 Excellent|ممتاز
-Expand|يوسّع
+Expand|يوسع
 Experience|خبرة
 Familiar|مألوف
 Flexible|مرن
@@ -277,14 +405,13 @@ Guarantee|يضمن
 Hesitate|يتردد
 Ignore|يتجاهل
 Imagine|يتخيل
-Improve|يحسّن
+Improve|يحسن
 Independent|مستقل
 Influence|يؤثر
 Inform|يُعلم
 Intelligent|ذكي
 Interrupt|يقاطع
 Investigate|يحقق
-Journey|رحلة
 Knowledge|معرفة
 Maintain|يحافظ على
 Manage|يدير
@@ -311,206 +438,193 @@ Responsible|مسؤول
 Solution|حل
 Successful|ناجح
 Support|يدعم
+Accurate|دقيق
+Acquire|يكتسب
+Adapt|يتكيف
+Adequate|كاف
+Analyze|يحلل
+Anticipate|يتوقع
+Appreciate|يقدر
+Appropriate|مناسب
+Consequence|نتيجة
+Consistent|متسق
+Contribute|يساهم
+Convince|يقنع
+Determine|يحدد
+Distinguish|يميز
+Emphasize|يؤكد
+Essential|أساسي
+Evaluate|يقيم
+Eventually|في نهاية المطاف
+Exaggerate|يبالغ
+Expand|يوسع
+Harmful|ضار
+Identify|يحدد الهوية
+Indicate|يشير
+Interpret|يفسر
+Justify|يبرر
+Logical|منطقي
+Obtain|يحصل على
+Participate|يشارك
+Precise|دقيق
+Principle|مبدأ
+Procedure|إجراء
+Relevant|ذو صلة
+Significant|مهم
+Sufficient|كاف
+Transform|يحول
+Valid|صالح
 `.trim();
 
-function parseWords(raw) {
-  return raw.split("\n").map(line => {
-    const parts = line.split("|");
-    return {en: parts[0].trim(), ar: parts[1].trim()};
-  });
-}
-
-const levels = [
-  {name:"المرحلة المتوسطة", words:parseWords(mediumRaw)},
-  {name:"المرحلة الصعبة", words:parseWords(hardRaw)}
+const levels=[
+{name:"المرحلة السهلة",words:parseWords(easyRaw)},
+{name:"المرحلة المتوسطة",words:parseWords(mediumRaw)},
+{name:"المرحلة الصعبة",words:parseWords(hardRaw)}
 ];
 
-let levelIndex = 0;
-let questions = [];
-let currentIndex = 0;
-let score = 0;
-let mistakes = 0;
-let answered = false;
-let mediumComplete = false;
-let lastResult = "";
+let levelIndex=0,questions=[],currentIndex=0,score=0,mistakes=0,answered=false,lastResult="";
+let completed=[false,false,false];
+const $=id=>document.getElementById(id);
 
-const $ = id => document.getElementById(id);
-
-function shuffle(array) {
-  const copy = [...array];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+function shuffle(array){
+  const copy=[...array];
+  for(let i=copy.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [copy[i],copy[j]]=[copy[j],copy[i]];
   }
   return copy;
 }
 
-function updateHome() {
-  $("hardBtn").disabled = !mediumComplete;
-  $("hardNote").textContent = mediumComplete
-    ? "100 سؤال · كلمات أكثر تقدّمًا"
-    : "تُفتح بعد إنهاء المرحلة المتوسطة";
+function updateHome(){
+  $("mediumBtn").disabled=!completed[0];
+  $("hardBtn").disabled=!completed[1];
+  $("mediumNote").textContent=completed[0]?"100 سؤال · كلمات أكثر تنوعًا":"تُفتح بعد إنهاء المرحلة السهلة";
+  $("hardNote").textContent=completed[1]?"100 سؤال · مفردات متقدمة":"تُفتح بعد إنهاء المرحلة المتوسطة";
+  if(completed[0])$("mediumBtn").innerHTML="📗 المرحلة المتوسطة<span>100 سؤال · كلمات أكثر تنوعًا</span>";
+  if(completed[1])$("hardBtn").innerHTML="📕 المرحلة الصعبة<span>100 سؤال · مفردات متقدمة</span>";
 }
 
-function showOnly(id) {
-  ["home","stats","progressTrack","questionCard","result"].forEach(name => {
-    $(name).classList.add("hidden");
-  });
+function showOnly(id){
+  ["home","stats","progressTrack","questionCard","result"].forEach(name=>$(name).classList.add("hidden"));
   $(id).classList.remove("hidden");
 }
 
-function goHome() {
-  if ("speechSynthesis" in window) speechSynthesis.cancel();
+function goHome(){
+  if("speechSynthesis" in window)speechSynthesis.cancel();
   showOnly("home");
   updateHome();
 }
 
-function startLevel(index) {
-  if (index === 1 && !mediumComplete) return;
-
-  levelIndex = index;
-  currentIndex = 0;
-  score = 0;
-  mistakes = 0;
-  answered = false;
-
-  questions = shuffle(levels[index].words);
+function startLevel(index){
+  if(index>0&&!completed[index-1])return;
+  levelIndex=index;
+  currentIndex=0;score=0;mistakes=0;answered=false;
+  questions=shuffle(levels[index].words);
   showOnly("stats");
   $("progressTrack").classList.remove("hidden");
   $("questionCard").classList.remove("hidden");
   loadQuestion();
 }
 
-function loadQuestion() {
-  if (currentIndex >= questions.length) {
-    finishLevel();
-    return;
-  }
+function loadQuestion(){
+  if(currentIndex>=questions.length){finishLevel();return;}
+  answered=false;
+  const q=questions[currentIndex];
+  $("questionNumber").textContent=(currentIndex+1)+" / 100";
+  $("score").textContent=score;
+  $("mistakes").textContent=mistakes;
+  $("progressBar").style.width=(currentIndex/100*100)+"%";
+  $("levelLabel").textContent=levels[levelIndex].name;
+  $("emoji").textContent=["🟢","📗","📕"][levelIndex];
+  $("word").textContent=q.en;
+  $("feedback").textContent="";
+  $("feedback").className="feedback";
+  $("nextBtn").disabled=true;
+  $("nextBtn").textContent=currentIndex===99?"إنهاء المرحلة 🏆":"السؤال التالي ⬅️";
 
-  answered = false;
-  const q = questions[currentIndex];
-
-  $("questionNumber").textContent = (currentIndex + 1) + " / 100";
-  $("score").textContent = score;
-  $("mistakes").textContent = mistakes;
-  $("progressBar").style.width = (currentIndex / 100 * 100) + "%";
-  $("levelLabel").textContent = levels[levelIndex].name;
-  $("emoji").textContent = levelIndex === 0 ? "📗" : "📕";
-  $("word").textContent = q.en;
-  $("feedback").textContent = "";
-  $("feedback").className = "feedback";
-  $("nextBtn").disabled = true;
-  $("nextBtn").textContent = currentIndex === 99 ? "إنهاء المرحلة 🏆" : "السؤال التالي ⬅️";
-
-  const otherAnswers = shuffle(
-    levels[levelIndex].words.filter(item => item.ar !== q.ar)
-  ).slice(0, 2).map(item => item.ar);
-
-  const options = shuffle([q.ar, ...otherAnswers]);
-  $("answers").innerHTML = "";
-
-  options.forEach(option => {
-    const button = document.createElement("button");
-    button.className = "answer";
-    button.textContent = option;
-    button.onclick = () => checkAnswer(button, option, q);
-    $("answers").appendChild(button);
+  const other=shuffle(levels[levelIndex].words.filter(item=>item.ar!==q.ar))
+    .slice(0,2).map(item=>item.ar);
+  const options=shuffle([q.ar,...other]);
+  $("answers").innerHTML="";
+  options.forEach(option=>{
+    const btn=document.createElement("button");
+    btn.className="answer";
+    btn.textContent=option;
+    btn.onclick=()=>checkAnswer(btn,option,q);
+    $("answers").appendChild(btn);
   });
-
-  setTimeout(speakWord, 350);
+  setTimeout(speakWord,350);
 }
 
-function speak(text, lang) {
-  if (!("speechSynthesis" in window)) {
-    $("feedback").textContent = "الصوت غير مدعوم في هذا المتصفح.";
-    $("feedback").className = "feedback try";
-    return;
-  }
-
+function speak(text,lang){
+  if(!("speechSynthesis" in window))return;
   speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = lang;
-  utterance.rate = 0.78;
-  utterance.pitch = 1.05;
-
-  const voices = speechSynthesis.getVoices();
-  const voice = voices.find(v => v.lang.toLowerCase().startsWith(lang.toLowerCase()));
-  if (voice) utterance.voice = voice;
+  const utterance=new SpeechSynthesisUtterance(text);
+  utterance.lang=lang;utterance.rate=.78;utterance.pitch=1.05;
+  const voice=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith(lang.toLowerCase()));
+  if(voice)utterance.voice=voice;
   speechSynthesis.speak(utterance);
 }
 
-function speakWord() {
-  if (questions[currentIndex]) speak(questions[currentIndex].en, "en-US");
+function speakWord(){
+  if(questions[currentIndex])speak(questions[currentIndex].en,"en-US");
 }
 
-function checkAnswer(button, selected, question) {
-  if (answered || button.disabled) return;
-
-  if (selected === question.ar) {
-    answered = true;
-    score++;
+function checkAnswer(button,selected,question){
+  if(answered||button.disabled)return;
+  if(selected===question.ar){
+    answered=true;score++;
     button.classList.add("correct");
-    $("feedback").textContent = "🌟 Very Good! أحسنت!";
-    $("feedback").className = "feedback good";
-
-    [...$("answers").children].forEach(btn => btn.disabled = true);
-    $("nextBtn").disabled = false;
-    $("score").textContent = score;
-    speak("Very Good!", "en-US");
-  } else {
+    $("feedback").textContent="🌟 Very Good! أحسنت!";
+    $("feedback").className="feedback good";
+    [...$("answers").children].forEach(btn=>btn.disabled=true);
+    $("nextBtn").disabled=false;
+    $("score").textContent=score;
+    speak("Very Good!","en-US");
+  }else{
     mistakes++;
-    button.classList.add("wrong");
-    button.disabled = true;
-    $("feedback").textContent = "😊 No problem, try again! لا مشكلة، حاول مرة أخرى";
-    $("feedback").className = "feedback try";
-    $("mistakes").textContent = mistakes;
-    speak("No problem, try again!", "en-US");
+    button.classList.add("wrong");button.disabled=true;
+    $("feedback").textContent="😊 No problem, try again! لا مشكلة، حاول مرة أخرى";
+    $("feedback").className="feedback try";
+    $("mistakes").textContent=mistakes;
+    speak("No problem, try again!","en-US");
   }
 }
 
-function nextQuestion() {
-  if (!answered) return;
+function nextQuestion(){
+  if(!answered)return;
   currentIndex++;
   loadQuestion();
 }
 
-function finishLevel() {
-  $("progressBar").style.width = "100%";
+function finishLevel(){
+  $("progressBar").style.width="100%";
   $("questionCard").classList.add("hidden");
   $("stats").classList.add("hidden");
   $("progressTrack").classList.add("hidden");
   $("result").classList.remove("hidden");
 
-  const percent = Math.round(score / 100 * 100);
-  $("resultEmoji").textContent = "🏆🎉";
-  $("resultTitle").textContent = "أحسنت يا بطل!";
-  $("resultText").textContent =
-    "أنهيت " + levels[levelIndex].name +
-    ". أجبت إجابة صحيحة عن " + score +
-    " من 100 سؤال. نتيجتك " + percent +
-    "%. عدد المحاولات الخاطئة: " + mistakes + ".";
+  const percent=score;
+  completed[levelIndex]=true;
+  lastResult=levelIndex<2?"next":"replay";
+  $("resultEmoji").textContent="🏆🎉";
+  $("resultTitle").textContent="أحسنت يا بطل!";
+  $("resultText").textContent="أنهيت "+levels[levelIndex].name+". أجبت إجابة صحيحة عن "+score+" من 100 سؤال. نتيجتك "+percent+"%. عدد المحاولات الخاطئة: "+mistakes+".";
 
-  if (levelIndex === 0) {
-    mediumComplete = true;
-    lastResult = "unlock";
-    $("resultAction").textContent = "افتح المرحلة الصعبة 🔓";
-    $("resultText").textContent += " لقد أصبحت المرحلة الصعبة متاحة لك!";
-  } else {
-    lastResult = "replay";
-    $("resultAction").textContent = "إعادة المرحلة الصعبة 🔄";
-    $("resultText").textContent += " لقد أكملت المرحلتين بنجاح!";
+  if(levelIndex<2){
+    $("resultText").textContent+=" أصبحت المرحلة التالية متاحة لك!";
+    $("resultAction").textContent="الانتقال إلى المرحلة التالية ➡️";
+  }else{
+    $("resultText").textContent+=" لقد أنهيت المراحل الثلاث!";
+    $("resultAction").textContent="إعادة المرحلة الصعبة 🔄";
   }
-
   updateHome();
-  speak("Excellent! You finished the level!", "en-US");
+  speak("Excellent! You finished the level!","en-US");
 }
 
-function resultAction() {
-  if (lastResult === "unlock") {
-    startLevel(1);
-  } else {
-    startLevel(levelIndex);
-  }
+function resultAction(){
+  if(lastResult==="next")startLevel(levelIndex+1);
+  else startLevel(2);
 }
 
 updateHome();
