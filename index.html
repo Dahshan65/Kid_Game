@@ -3,578 +3,518 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هيا نتعلم الإنجليزية للأطفال</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#176b50">
+<title>أبطال الإنجليزية</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Tahoma, Arial, sans-serif;
-  background: linear-gradient(135deg, #e9fff2, #fff4d6);
-  color: #243c30;
-}
-
-.container {
-  width: 100%;
-  max-width: 760px;
-  margin: auto;
-  padding: 16px;
-}
-
-.header {
-  text-align: center;
-  color: white;
-  background: linear-gradient(135deg, #16845d, #36b981);
-  padding: 25px 15px;
-  border-radius: 25px;
-}
-
-.header .emoji {
-  font-size: 50px;
-}
-
-.header h1 {
-  margin: 8px 0;
-  font-size: 30px;
-}
-
-.header p {
-  margin: 8px 0 0;
-}
-
-.stats {
-  display: flex;
-  gap: 8px;
-  margin: 15px 0;
-}
-
-.stat {
-  background: white;
-  border-radius: 14px;
-  padding: 12px 4px;
-  flex: 1;
-  text-align: center;
-  border: 1px solid #d9eadf;
-}
-
-.stat strong {
-  display: block;
-  font-size: 21px;
-  color: #16845d;
-  margin-top: 5px;
-}
-
-.progress {
-  background: #d9e9df;
-  height: 10px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 18px;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0;
-  background: #ffc83d;
-  transition: width 0.3s;
-}
-
-.card {
-  background: white;
-  border-radius: 24px;
-  padding: 22px 16px;
-  text-align: center;
-  box-shadow: 0 8px 25px #204e3310;
-}
-
-.category {
-  color: #78877e;
-  font-size: 14px;
-}
-
-.word {
-  font-size: clamp(40px, 9vw, 60px);
-  font-weight: bold;
-  color: #16845d;
-  margin: 18px 0 8px;
-  direction: ltr;
-}
-
-.picture {
-  font-size: 65px;
-  margin: 12px;
-}
-
-.listen-btn {
-  background: #fff1c4;
-  border: 2px solid #ffdb72;
-  border-radius: 15px;
-  padding: 14px 22px;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 8px;
-}
-
-.question {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 24px 0 15px;
-}
-
-.answers {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-.answer-btn {
-  background: #f8fcf9;
-  border: 2px solid #d9e8de;
-  border-radius: 14px;
-  padding: 15px;
-  font-family: inherit;
-  font-size: 18px;
-  cursor: pointer;
-  min-height: 54px;
-}
-
-.answer-btn:hover:not(:disabled) {
-  background: #eaf8ef;
-  border-color: #16845d;
-}
-
-.answer-btn:disabled {
-  cursor: default;
-}
-
-.answer-btn.correct {
-  background: #dcf8e5;
-  border-color: #239b58;
-  color: #126735;
-  font-weight: bold;
-}
-
-.answer-btn.wrong {
-  background: #fff0f0;
-  border-color: #dc6262;
-  color: #a52a2a;
-}
-
-.feedback {
-  min-height: 36px;
-  margin: 17px 0 5px;
-  font-size: 22px;
-  font-weight: bold;
-  direction: ltr;
-}
-
-.next-btn, .restart-btn {
-  background: #16845d;
-  color: white;
-  border: none;
-  border-radius: 14px;
-  padding: 14px 24px;
-  font-family: inherit;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 12px;
-}
-
-.next-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.footer {
-  text-align: center;
-  color: #75847b;
-  font-size: 13px;
-  margin: 20px 0;
-}
-
-@media (min-width: 550px) {
-  .answers {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .answer-btn:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;min-height:100%;font-family:Arial,Tahoma,sans-serif}
+body{background:#e9fff3;color:#19352b}
+button{font-family:inherit;cursor:pointer;touch-action:manipulation}
+.app{width:100%;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;background:linear-gradient(160deg,#e9fff3,#fff8df)}
+.header{width:100%;max-width:650px;text-align:center;background:#176b50;color:white;padding:16px 10px;border-radius:20px}
+.header h1{font-size:clamp(24px,6vw,34px);margin:0 0 7px}
+.header p{margin:0;font-size:16px}
+.panel{width:100%;max-width:650px;margin:14px auto;background:white;border-radius:22px;padding:18px 14px;box-shadow:0 5px 18px #0000000d}
+.levels{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+.level-btn{width:100%;min-height:110px;border:3px solid #cde9d7;border-radius:18px;background:#f5fff8;padding:18px;color:#176b50;font-size:23px;font-weight:bold}
+.level-btn span{display:block;font-size:15px;font-weight:normal;margin-top:10px;color:#425d4c}
+.level-btn.hard{background:#fff4e7;border-color:#f0d0a9;color:#985016}
+.level-btn:disabled{opacity:.5;cursor:not-allowed}
+.note{text-align:center;line-height:1.8;color:#52675b}
+.stats{width:100%;max-width:650px;display:flex;gap:7px;margin:12px 0}
+.stat{flex:1;text-align:center;background:white;border-radius:13px;padding:10px 3px;font-size:14px}
+.stat strong{display:block;font-size:21px;color:#176b50;margin-top:5px}
+.progress-track{width:100%;max-width:650px;height:9px;background:#d4e9dc;border-radius:20px;overflow:hidden;margin-bottom:12px}
+.progress-bar{height:100%;width:0;background:#ffb52e;transition:width .3s}
+.question-card{width:100%;max-width:650px;flex:1;background:white;border-radius:22px;padding:18px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 5px 18px #0000000d}
+.level-label{background:#e5f7eb;color:#176b50;border-radius:20px;padding:7px 16px;font-weight:bold;margin-bottom:12px}
+.emoji{font-size:clamp(42px,11vw,68px);margin-bottom:8px}
+.instruction{font-size:16px;color:#60766a;line-height:1.6;margin:0 0 8px}
+.word{direction:ltr;font-size:clamp(36px,10vw,58px);font-weight:900;color:#176b50;overflow-wrap:anywhere;margin:8px 0 15px}
+.speak-btn{width:100%;max-width:400px;min-height:54px;border:0;border-radius:15px;background:#e3f5ff;color:#125a87;font-size:18px;font-weight:bold;margin-bottom:18px}
+.answers-title{font-size:18px;font-weight:bold;margin-bottom:10px}
+.answers{display:grid;grid-template-columns:1fr;gap:9px;width:100%}
+.answer{width:100%;min-height:54px;border:2px solid #dceee3;border-radius:15px;background:#f8fffb;color:#243b30;font-size:20px;font-weight:bold;padding:12px}
+.answer.correct{background:#c9f7d7;border-color:#24a65a;color:#12612d}
+.answer.wrong{background:#ffe1df;border-color:#e45a54;color:#a62b25}
+.answer:disabled{opacity:1;cursor:default}
+.feedback{width:100%;min-height:32px;text-align:center;font-size:19px;font-weight:bold;margin:12px 0 2px;line-height:1.6}
+.feedback.good{color:#168343}
+.feedback.try{color:#bf6330}
+.next-btn,.restart-btn,.back-btn{width:100%;min-height:55px;border:0;border-radius:15px;background:#ffb52e;color:#49300a;font-size:19px;font-weight:bold;padding:12px;margin-top:9px}
+.next-btn:disabled{opacity:.45;cursor:not-allowed}
+.back-btn{background:#e5f2e9;color:#176b50}
+.footer{text-align:center;padding:12px 0 3px;font-size:13px;color:#60766a}
+.hidden{display:none!important}
+.result{width:100%;max-width:650px;text-align:center;background:white;border-radius:22px;padding:25px 16px;margin:auto 0;line-height:1.8}
+.result .big{font-size:65px}
+.result h2{font-size:28px;color:#176b50}
+.result p{font-size:19px}
+@media(min-width:700px){.levels{grid-template-columns:1fr 1fr}.app{padding:20px}.question-card{padding:24px}}
+@media(max-height:720px){.header{padding:9px}.header h1{font-size:23px}.stats{margin:7px 0}.stat{padding:6px 3px}.question-card{padding:10px}.emoji{font-size:36px;margin:0}.word{font-size:38px;margin:4px 0 8px}.speak-btn{min-height:43px;margin-bottom:8px}.answer{min-height:43px;padding:7px}.answers{gap:6px}.feedback{margin:5px 0}}
 </style>
 </head>
-
 <body>
+<div class="app">
+<header class="header">
+<h1>🌟 أبطال الإنجليزية 🌟</h1>
+<p>تعلم الإنجليزية خطوة بخطوة</p>
+</header>
 
-<div class="container">
+<section id="home" class="panel">
+<h2 style="text-align:center;color:#176b50">اختر المرحلة</h2>
+<p class="note">استمع إلى الكلمة الإنجليزية، ثم اختر معناها الصحيح من بين ثلاثة خيارات.</p>
+<div class="levels">
+<button class="level-btn" onclick="startLevel(0)">
+📗 المرحلة المتوسطة
+<span>100 سؤال · كلمات شائعة وأفعال يومية</span>
+</button>
+<button class="level-btn hard" id="hardBtn" onclick="startLevel(1)" disabled>
+📕 المرحلة الصعبة 🔒
+<span id="hardNote">تُفتح بعد إنهاء المرحلة المتوسطة</span>
+</button>
+</div>
+<p class="note">عند الخطأ ستبقى الكلمة نفسها حتى تحاول مرة أخرى.</p>
+</section>
 
-  <header class="header">
-    <div class="emoji">🦉📚</div>
-    <h1>هيا نتعلم الإنجليزية!</h1>
-    <p>استمع إلى الكلمة واختر معناها الصحيح</p>
-  </header>
+<section id="stats" class="stats hidden">
+<div class="stat">السؤال<strong id="questionNumber">1 / 100</strong></div>
+<div class="stat">الصحيحة<strong id="score">0</strong></div>
+<div class="stat">الأخطاء<strong id="mistakes">0</strong></div>
+</section>
+<div id="progressTrack" class="progress-track hidden"><div id="progressBar" class="progress-bar"></div></div>
 
-  <div class="stats">
-    <div class="stat">
-      السؤال
-      <strong id="questionCount">1 / 100</strong>
-    </div>
+<main id="questionCard" class="question-card hidden">
+<div class="level-label" id="levelLabel">المرحلة المتوسطة</div>
+<div class="emoji" id="emoji">🌟</div>
+<p class="instruction">استمع إلى الكلمة، ثم اختر معناها بالعربية</p>
+<div class="word" id="word">Apple</div>
+<button class="speak-btn" onclick="speakWord()">🔊 استمع إلى الكلمة</button>
+<div class="answers-title">ما معنى هذه الكلمة؟ 🤔</div>
+<div id="answers" class="answers"></div>
+<div id="feedback" class="feedback" aria-live="polite"></div>
+<button id="nextBtn" class="next-btn" onclick="nextQuestion()" disabled>السؤال التالي ⬅️</button>
+<button class="back-btn" onclick="goHome()">العودة إلى المراحل</button>
+</main>
 
-    <div class="stat">
-      النقاط
-      <strong id="score">0</strong>
-    </div>
+<section id="result" class="result hidden">
+<div class="big" id="resultEmoji">🏆🎉</div>
+<h2 id="resultTitle">أحسنت يا بطل!</h2>
+<p id="resultText"></p>
+<button id="resultAction" class="restart-btn" onclick="resultAction()">متابعة</button>
+<button class="back-btn" onclick="goHome()">العودة إلى المراحل</button>
+</section>
 
-    <div class="stat">
-      المرحلة
-      <strong id="stage">1</strong>
-    </div>
-  </div>
-
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-
-  <section class="card" id="quizCard">
-
-    <div class="category" id="category">كلمات يومية</div>
-
-    <div class="word" id="word">Apple</div>
-
-    <div class="picture" id="picture">🍎</div>
-
-    <button class="listen-btn" id="listenBtn" type="button">
-      🔊 استمع إلى الكلمة
-    </button>
-
-    <div class="question">
-      ما معنى الكلمة باللغة العربية؟
-    </div>
-
-    <div class="answers" id="answers"></div>
-
-    <div class="feedback" id="feedback" aria-live="polite"></div>
-
-    <button class="next-btn" id="nextBtn" type="button" disabled>
-      السؤال التالي ←
-    </button>
-
-  </section>
-
-  <section class="card hidden" id="resultCard">
-    <div style="font-size:65px">🏆🌟</div>
-    <h2>أحسنت يا بطل!</h2>
-    <p id="finalScore"></p>
-    <p id="finalMessage"></p>
-
-    <button class="restart-btn" id="restartBtn" type="button">
-      🔄 العب مرة أخرى
-    </button>
-  </section>
-
-  <div class="footer">
-    إعداد وبرمجة: وائل دهشان
-  </div>
-
+<footer class="footer">إعداد وبرمجة: وائل دهشان</footer>
 </div>
 
 <script>
-const words = [
-["Apple","تفاحة","🍎","طعام"],
-["Book","كتاب","📘","أشياء"],
-["Cat","قطة","🐱","حيوانات"],
-["Dog","كلب","🐶","حيوانات"],
-["House","منزل","🏠","أماكن"],
-["School","مدرسة","🏫","أماكن"],
-["Water","ماء","💧","طعام وشراب"],
-["Milk","حليب","🥛","طعام وشراب"],
-["Bread","خبز","🍞","طعام وشراب"],
-["Sun","شمس","☀️","الطبيعة"],
-["Moon","قمر","🌙","الطبيعة"],
-["Star","نجمة","⭐","الطبيعة"],
-["Tree","شجرة","🌳","الطبيعة"],
-["Flower","زهرة","🌸","الطبيعة"],
-["Bird","طائر","🐦","حيوانات"],
-["Fish","سمكة","🐟","حيوانات"],
-["Horse","حصان","🐴","حيوانات"],
-["Lion","أسد","🦁","حيوانات"],
-["Elephant","فيل","🐘","حيوانات"],
-["Rabbit","أرنب","🐰","حيوانات"],
-["Red","أحمر","🟥","الألوان"],
-["Blue","أزرق","🟦","الألوان"],
-["Green","أخضر","🟩","الألوان"],
-["Yellow","أصفر","🟨","الألوان"],
-["Black","أسود","⬛","الألوان"],
-["White","أبيض","⬜","الألوان"],
-["One","واحد","1️⃣","الأرقام"],
-["Two","اثنان","2️⃣","الأرقام"],
-["Three","ثلاثة","3️⃣","الأرقام"],
-["Ten","عشرة","🔟","الأرقام"],
-["Mother","أم","👩","العائلة"],
-["Father","أب","👨","العائلة"],
-["Sister","أخت","👧","العائلة"],
-["Brother","أخ","👦","العائلة"],
-["Baby","رضيع","👶","العائلة"],
-["Friend","صديق","🤝","الأشخاص"],
-["Teacher","معلّم","🧑‍🏫","الأشخاص"],
-["Doctor","طبيب","🧑‍⚕️","الأشخاص"],
-["Boy","ولد","🧒","الأشخاص"],
-["Girl","بنت","👧","الأشخاص"],
-["Head","رأس","🙂","الجسم"],
-["Eye","عين","👁️","الجسم"],
-["Ear","أذن","👂","الجسم"],
-["Nose","أنف","👃","الجسم"],
-["Mouth","فم","👄","الجسم"],
-["Hand","يد","✋","الجسم"],
-["Foot","قدم","🦶","الجسم"],
-["Heart","قلب","❤️","الجسم"],
-["Happy","سعيد","😄","الصفات"],
-["Sad","حزين","😢","الصفات"],
-["Big","كبير","🐘","الصفات"],
-["Small","صغير","🐭","الصفات"],
-["Hot","حار","🔥","الصفات"],
-["Cold","بارد","🧊","الصفات"],
-["Fast","سريع","🚀","الصفات"],
-["Slow","بطيء","🐢","الصفات"],
-["Good","جيد","👍","الصفات"],
-["Bad","سيئ","👎","الصفات"],
-["Beautiful","جميل","🌷","الصفات"],
-["Strong","قوي","💪","الصفات"],
-["Run","يركض","🏃","أفعال"],
-["Walk","يمشي","🚶","أفعال"],
-["Eat","يأكل","🍽️","أفعال"],
-["Drink","يشرب","🥤","أفعال"],
-["Sleep","ينام","😴","أفعال"],
-["Read","يقرأ","📖","أفعال"],
-["Write","يكتب","✍️","أفعال"],
-["Speak","يتكلم","🗣️","أفعال"],
-["Listen","يستمع","👂","أفعال"],
-["Look","ينظر","👀","أفعال"],
-["Play","يلعب","⚽","أفعال"],
-["Jump","يقفز","🤸","أفعال"],
-["Swim","يسبح","🏊","أفعال"],
-["Sing","يغني","🎤","أفعال"],
-["Dance","يرقص","💃","أفعال"],
-["Open","يفتح","🚪","أفعال"],
-["Close","يغلق","🔒","أفعال"],
-["Go","يذهب","➡️","أفعال"],
-["Come","يأتي","👋","أفعال"],
-["Make","يصنع","🛠️","أفعال"],
-["Car","سيارة","🚗","المواصلات"],
-["Bus","حافلة","🚌","المواصلات"],
-["Train","قطار","🚆","المواصلات"],
-["Airplane","طائرة","✈️","المواصلات"],
-["Ball","كرة","⚽","الألعاب"],
-["Doll","دمية","🪆","الألعاب"],
-["Chair","كرسي","🪑","أشياء"],
-["Table","طاولة","🪵","أشياء"],
-["Door","باب","🚪","أشياء"],
-["Window","نافذة","🪟","أشياء"],
-["Morning","صباح","🌅","الوقت"],
-["Night","ليل","🌃","الوقت"],
-["Today","اليوم","📅","الوقت"],
-["Tomorrow","غدًا","➡️","الوقت"],
-["Rain","مطر","🌧️","الطقس"],
-["Snow","ثلج","❄️","الطقس"],
-["Playground","ملعب","🛝","أماكن"],
-["Garden","حديقة","🌻","أماكن"],
-["Help","يساعد","🫶","أفعال"],
-["Thank you","شكرًا لك","🙏","عبارات"]
-];
+const mediumRaw = `
+Apple|تفاحة
+Book|كتاب
+School|مدرسة
+Teacher|معلّم
+Student|طالب
+Pen|قلم
+Pencil|قلم رصاص
+Table|طاولة
+Chair|كرسي
+Door|باب
+Window|نافذة
+House|منزل
+Car|سيارة
+Bus|حافلة
+Train|قطار
+Airplane|طائرة
+Bicycle|دراجة
+Road|طريق
+Tree|شجرة
+Flower|زهرة
+Sun|شمس
+Moon|قمر
+Star|نجمة
+Sky|سماء
+Rain|مطر
+Water|ماء
+Milk|حليب
+Bread|خبز
+Cheese|جبن
+Egg|بيضة
+Banana|موز
+Orange|برتقال
+Grapes|عنب
+Strawberry|فراولة
+Chicken|دجاج
+Fish|سمك
+Rice|أرز
+Breakfast|إفطار
+Dinner|عشاء
+Watermelon|بطيخ
+Cat|قطة
+Dog|كلب
+Horse|حصان
+Cow|بقرة
+Sheep|خروف
+Lion|أسد
+Elephant|فيل
+Monkey|قرد
+Rabbit|أرنب
+Bird|طائر
+Duck|بطة
+Turtle|سلحفاة
+Doctor|طبيب
+Nurse|ممرض
+Farmer|مزارع
+Driver|سائق
+Father|أب
+Mother|أم
+Brother|أخ
+Sister|أخت
+Friend|صديق
+Family|عائلة
+Happy|سعيد
+Sad|حزين
+Angry|غاضب
+Tired|متعب
+Hungry|جائع
+Thirsty|عطشان
+Big|كبير
+Small|صغير
+Fast|سريع
+Slow|بطيء
+Hot|حار
+Cold|بارد
+Beautiful|جميل
+Strong|قوي
+Clean|نظيف
+Open|يفتح
+Close|يغلق
+Read|يقرأ
+Write|يكتب
+Speak|يتكلم
+Listen|يستمع
+Eat|يأكل
+Drink|يشرب
+Sleep|ينام
+Wake up|يستيقظ
+Walk|يمشي
+Run|يركض
+Jump|يقفز
+Play|يلعب
+Sing|يغني
+Dance|يرقص
+Draw|يرسم
+Swim|يسبح
+Cook|يطبخ
+Help|يساعد
+Learn|يتعلم
+Think|يفكر
+`.trim();
 
-let order = [];
-let current = 0;
-let score = 0;
-let answered = false;
+const hardRaw = `
+Achieve|يحقق
+Admire|يعجب بـ
+Advantage|ميزة
+Adventure|مغامرة
+Advice|نصيحة
+Afford|يستطيع تحمّل التكلفة
+Ancient|قديم
+Anxious|قلق
+Apologize|يعتذر
+Apparent|واضح
+Approach|يقترب
+Arrange|يرتب
+Attempt|محاولة
+Avoid|يتجنب
+Aware|مدرك
+Benefit|فائدة
+Brave|شجاع
+Brief|موجز
+Calculate|يحسب
+Challenge|تحدٍّ
+Circumstance|ظرف
+Combine|يدمج
+Comfortable|مريح
+Compare|يقارن
+Compete|يتنافس
+Complex|معقد
+Concentrate|يركز
+Concern|قلق أو اهتمام
+Confident|واثق
+Confuse|يربك
+Consider|يعتبر
+Convenient|ملائم
+Courage|شجاعة
+Curious|فضولي
+Decline|يرفض أو يتراجع
+Deliberate|متعمد
+Demand|يطلب بإلحاح
+Depend|يعتمد
+Describe|يصف
+Determine|يحدد
+Develop|يطوّر
+Difference|اختلاف
+Difficult|صعب
+Disappoint|يخيّب الأمل
+Discover|يكتشف
+Efficient|فعّال
+Encourage|يشجّع
+Environment|بيئة
+Establish|يؤسس
+Estimate|يقدّر
+Evidence|دليل
+Examine|يفحص
+Excellent|ممتاز
+Expand|يوسّع
+Experience|خبرة
+Familiar|مألوف
+Flexible|مرن
+Frequent|متكرر
+Generous|كريم
+Gradually|تدريجيًا
+Guarantee|يضمن
+Hesitate|يتردد
+Ignore|يتجاهل
+Imagine|يتخيل
+Improve|يحسّن
+Independent|مستقل
+Influence|يؤثر
+Inform|يُعلم
+Intelligent|ذكي
+Interrupt|يقاطع
+Investigate|يحقق
+Journey|رحلة
+Knowledge|معرفة
+Maintain|يحافظ على
+Manage|يدير
+Necessary|ضروري
+Notice|يلاحظ
+Obvious|بديهي
+Opportunity|فرصة
+Organize|ينظم
+Ordinary|عادي
+Particular|معين
+Patient|صبور
+Perform|يؤدي
+Persuade|يقنع
+Pleasant|لطيف
+Predict|يتنبأ
+Prevent|يمنع
+Probably|على الأرجح
+Purpose|غاية
+Recommend|يوصي
+Reduce|يقلل
+Reliable|موثوق
+Require|يتطلب
+Responsible|مسؤول
+Solution|حل
+Successful|ناجح
+Support|يدعم
+`.trim();
 
-const el = id => document.getElementById(id);
-
-function shuffle(array) {
-  const result = [...array];
-
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-
-  return result;
+function parseWords(raw) {
+  return raw.split("\n").map(line => {
+    const parts = line.split("|");
+    return {en: parts[0].trim(), ar: parts[1].trim()};
+  });
 }
 
-function speak(text) {
-  if (!("speechSynthesis" in window)) {
+const levels = [
+  {name:"المرحلة المتوسطة", words:parseWords(mediumRaw)},
+  {name:"المرحلة الصعبة", words:parseWords(hardRaw)}
+];
+
+let levelIndex = 0;
+let questions = [];
+let currentIndex = 0;
+let score = 0;
+let mistakes = 0;
+let answered = false;
+let mediumComplete = false;
+let lastResult = "";
+
+const $ = id => document.getElementById(id);
+
+function shuffle(array) {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function updateHome() {
+  $("hardBtn").disabled = !mediumComplete;
+  $("hardNote").textContent = mediumComplete
+    ? "100 سؤال · كلمات أكثر تقدّمًا"
+    : "تُفتح بعد إنهاء المرحلة المتوسطة";
+}
+
+function showOnly(id) {
+  ["home","stats","progressTrack","questionCard","result"].forEach(name => {
+    $(name).classList.add("hidden");
+  });
+  $(id).classList.remove("hidden");
+}
+
+function goHome() {
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  showOnly("home");
+  updateHome();
+}
+
+function startLevel(index) {
+  if (index === 1 && !mediumComplete) return;
+
+  levelIndex = index;
+  currentIndex = 0;
+  score = 0;
+  mistakes = 0;
+  answered = false;
+
+  questions = shuffle(levels[index].words);
+  showOnly("stats");
+  $("progressTrack").classList.remove("hidden");
+  $("questionCard").classList.remove("hidden");
+  loadQuestion();
+}
+
+function loadQuestion() {
+  if (currentIndex >= questions.length) {
+    finishLevel();
     return;
   }
 
-  window.speechSynthesis.cancel();
-
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 0.85;
-  utterance.pitch = 1.05;
-
-  window.speechSynthesis.speak(utterance);
-}
-
-function renderQuestion() {
   answered = false;
+  const q = questions[currentIndex];
 
-  const item = words[order[current]];
+  $("questionNumber").textContent = (currentIndex + 1) + " / 100";
+  $("score").textContent = score;
+  $("mistakes").textContent = mistakes;
+  $("progressBar").style.width = (currentIndex / 100 * 100) + "%";
+  $("levelLabel").textContent = levels[levelIndex].name;
+  $("emoji").textContent = levelIndex === 0 ? "📗" : "📕";
+  $("word").textContent = q.en;
+  $("feedback").textContent = "";
+  $("feedback").className = "feedback";
+  $("nextBtn").disabled = true;
+  $("nextBtn").textContent = currentIndex === 99 ? "إنهاء المرحلة 🏆" : "السؤال التالي ⬅️";
 
-  el("questionCount").textContent =
-    (current + 1) + " / " + words.length;
+  const otherAnswers = shuffle(
+    levels[levelIndex].words.filter(item => item.ar !== q.ar)
+  ).slice(0, 2).map(item => item.ar);
 
-  el("score").textContent = score;
-  el("stage").textContent = Math.floor(current / 20) + 1;
+  const options = shuffle([q.ar, ...otherAnswers]);
+  $("answers").innerHTML = "";
 
-  el("progressBar").style.width =
-    (current / words.length * 100) + "%";
-
-  el("word").textContent = item[0];
-  el("picture").textContent = item[2];
-  el("category").textContent = item[3];
-
-  el("feedback").textContent = "";
-  el("nextBtn").disabled = true;
-
-  el("nextBtn").textContent =
-    current === words.length - 1
-      ? "عرض النتيجة 🏆"
-      : "السؤال التالي ←";
-
-  // اختيار إجابتين خاطئتين، بالإضافة إلى الإجابة الصحيحة
-  const wrong = shuffle(
-    words
-      .map((word, index) => index)
-      .filter(index => index !== order[current])
-  ).slice(0, 2);
-
-  const options = shuffle([order[current], ...wrong]);
-
-  el("answers").innerHTML = "";
-
-  options.forEach(index => {
+  options.forEach(option => {
     const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "answer-btn";
-    button.textContent = words[index][1];
-
-    button.addEventListener("click", () => {
-      checkAnswer(button, index);
-    });
-
-    el("answers").appendChild(button);
+    button.className = "answer";
+    button.textContent = option;
+    button.onclick = () => checkAnswer(button, option, q);
+    $("answers").appendChild(button);
   });
 
-  // نطق الكلمة عند بدء السؤال
-  setTimeout(() => speak(item[0]), 350);
+  setTimeout(speakWord, 350);
 }
 
-function checkAnswer(button, selectedIndex) {
-  if (answered) return;
+function speak(text, lang) {
+  if (!("speechSynthesis" in window)) {
+    $("feedback").textContent = "الصوت غير مدعوم في هذا المتصفح.";
+    $("feedback").className = "feedback try";
+    return;
+  }
 
-  const correctIndex = order[current];
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = 0.78;
+  utterance.pitch = 1.05;
 
-  if (selectedIndex === correctIndex) {
+  const voices = speechSynthesis.getVoices();
+  const voice = voices.find(v => v.lang.toLowerCase().startsWith(lang.toLowerCase()));
+  if (voice) utterance.voice = voice;
+  speechSynthesis.speak(utterance);
+}
+
+function speakWord() {
+  if (questions[currentIndex]) speak(questions[currentIndex].en, "en-US");
+}
+
+function checkAnswer(button, selected, question) {
+  if (answered || button.disabled) return;
+
+  if (selected === question.ar) {
     answered = true;
     score++;
+    button.classList.add("correct");
+    $("feedback").textContent = "🌟 Very Good! أحسنت!";
+    $("feedback").className = "feedback good";
 
-    document.querySelectorAll(".answer-btn").forEach(btn => {
-      btn.disabled = true;
-
-      if (btn.textContent === words[correctIndex][1]) {
-        btn.classList.add("correct");
-      }
-    });
-
-    el("feedback").textContent = "Very Good!";
-    el("feedback").style.color = "#16845d";
-
-    el("score").textContent = score;
-    el("nextBtn").disabled = false;
-
-    // التشجيع عند الإجابة الصحيحة
-    speak("Very Good!");
-
+    [...$("answers").children].forEach(btn => btn.disabled = true);
+    $("nextBtn").disabled = false;
+    $("score").textContent = score;
+    speak("Very Good!", "en-US");
   } else {
+    mistakes++;
     button.classList.add("wrong");
     button.disabled = true;
-
-    el("feedback").textContent = "No problem, try again!";
-    el("feedback").style.color = "#bd3737";
-
-    // التشجيع عند الخطأ، مع بقاء السؤال نفسه
-    speak("No problem, try again!");
+    $("feedback").textContent = "😊 No problem, try again! لا مشكلة، حاول مرة أخرى";
+    $("feedback").className = "feedback try";
+    $("mistakes").textContent = mistakes;
+    speak("No problem, try again!", "en-US");
   }
 }
 
-function finishQuiz() {
-  el("quizCard").classList.add("hidden");
-  el("resultCard").classList.remove("hidden");
-
-  el("progressBar").style.width = "100%";
-  el("questionCount").textContent = "100 / 100";
-
-  el("finalScore").textContent =
-    "نتيجتك: " + score + " من " + words.length;
-
-  if (score >= 90) {
-    el("finalMessage").textContent =
-      "ممتاز جدًا! أنت نجم اللغة الإنجليزية! 🌟";
-  } else if (score >= 70) {
-    el("finalMessage").textContent =
-      "عمل رائع! استمر في التعلّم! 👏";
-  } else {
-    el("finalMessage").textContent =
-      "أحسنت على المحاولة! العب مرة أخرى لتتعلم أكثر! 💪";
-  }
-
-  speak("Congratulations! You did a great job!");
-}
-
-function startQuiz() {
-  order = shuffle(words.map((_, index) => index));
-
-  current = 0;
-  score = 0;
-  answered = false;
-
-  el("quizCard").classList.remove("hidden");
-  el("resultCard").classList.add("hidden");
-
-  renderQuestion();
-}
-
-el("listenBtn").addEventListener("click", () => {
-  speak(words[order[current]][0]);
-});
-
-el("nextBtn").addEventListener("click", () => {
+function nextQuestion() {
   if (!answered) return;
+  currentIndex++;
+  loadQuestion();
+}
 
-  if (current < words.length - 1) {
-    current++;
-    renderQuestion();
+function finishLevel() {
+  $("progressBar").style.width = "100%";
+  $("questionCard").classList.add("hidden");
+  $("stats").classList.add("hidden");
+  $("progressTrack").classList.add("hidden");
+  $("result").classList.remove("hidden");
+
+  const percent = Math.round(score / 100 * 100);
+  $("resultEmoji").textContent = "🏆🎉";
+  $("resultTitle").textContent = "أحسنت يا بطل!";
+  $("resultText").textContent =
+    "أنهيت " + levels[levelIndex].name +
+    ". أجبت إجابة صحيحة عن " + score +
+    " من 100 سؤال. نتيجتك " + percent +
+    "%. عدد المحاولات الخاطئة: " + mistakes + ".";
+
+  if (levelIndex === 0) {
+    mediumComplete = true;
+    lastResult = "unlock";
+    $("resultAction").textContent = "افتح المرحلة الصعبة 🔓";
+    $("resultText").textContent += " لقد أصبحت المرحلة الصعبة متاحة لك!";
   } else {
-    finishQuiz();
+    lastResult = "replay";
+    $("resultAction").textContent = "إعادة المرحلة الصعبة 🔄";
+    $("resultText").textContent += " لقد أكملت المرحلتين بنجاح!";
   }
-});
 
-el("restartBtn").addEventListener("click", startQuiz);
+  updateHome();
+  speak("Excellent! You finished the level!", "en-US");
+}
 
-startQuiz();
+function resultAction() {
+  if (lastResult === "unlock") {
+    startLevel(1);
+  } else {
+    startLevel(levelIndex);
+  }
+}
+
+updateHome();
 </script>
-
 </body>
 </html>
 ```
