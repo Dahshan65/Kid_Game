@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#176b50">
-<title>أبطال الإنجليزية</title>
+<title>أبطال الإنجليزية - التحدي المتقدم</title>
 
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -22,7 +21,6 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 .levels{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
 .level-btn{width:100%;min-height:125px;border:3px solid #cde9d7;border-radius:20px;background:#f5fff8;padding:20px 12px;color:#176b50;font-size:26px;font-weight:bold}
 .level-btn span{display:block;font-size:17px;font-weight:normal;margin-top:10px;line-height:1.5}
-.level-btn.easy{background:#efffed;border-color:#8bd27b;color:#28702a}
 .level-btn.medium{background:#eff8ff;border-color:#a6d5ef;color:#176b8d}
 .level-btn.hard{background:#fff4e7;border-color:#f0d0a9;color:#985016}
 .level-btn:disabled{opacity:.55;cursor:not-allowed}
@@ -35,11 +33,11 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 .level-label{background:#e5f7eb;color:#176b50;border-radius:20px;padding:9px 18px;font-size:17px;font-weight:bold;margin-bottom:12px}
 .emoji{font-size:clamp(48px,12vw,76px);margin:5px}
 .instruction{font-size:18px;color:#60766a;line-height:1.6;margin:6px 0}
-.word{direction:ltr;font-size:clamp(40px,11vw,64px);font-weight:900;color:#176b50;overflow-wrap:anywhere;margin:10px 0 18px}
+.word{direction:ltr;font-size:clamp(36px,10vw,60px);font-weight:900;color:#176b50;overflow-wrap:anywhere;margin:10px 0 18px}
 .speak-btn{width:100%;max-width:460px;min-height:68px;border:0;border-radius:18px;background:#dff3ff;color:#125a87;font-size:23px;font-weight:bold;margin-bottom:20px}
 .answers-title{font-size:22px;font-weight:bold;margin-bottom:12px}
 .answers{display:grid;grid-template-columns:1fr;gap:12px;width:100%}
-.answer{width:100%;min-height:72px;border:3px solid #dceee3;border-radius:18px;background:#f8fffb;color:#243b30;font-size:24px;font-weight:bold;padding:15px}
+.answer{width:100%;min-height:72px;border:3px solid #dceee3;border-radius:18px;background:#f8fffb;color:#243b30;font-size:22px;font-weight:bold;padding:15px}
 .answer.correct{background:#c9f7d7;border-color:#24a65a;color:#12612d}
 .answer.wrong{background:#ffe1df;border-color:#e45a54;color:#a62b25}
 .answer:disabled{opacity:1;cursor:default}
@@ -63,25 +61,20 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 <div class="app">
 <header class="header">
 <h1>🌟 أبطال الإنجليزية 🌟</h1>
-<p>تعلم الإنجليزية خطوة بخطوة</p>
+<p>تحدي الـ 200 سؤال (المتوسطة والصعبة)</p>
 </header>
 
 <section id="home" class="panel">
-<h2>اختر المرحلة</h2>
+<h2>اختر مرحلة التحدي</h2>
 <p class="note">استمع إلى الكلمة الإنجليزية، ثم اختر معناها الصحيح من بين ثلاثة خيارات.</p>
 
 <div class="levels">
-<button class="level-btn easy" onclick="startLevel(0)">
-🟢 المرحلة السهلة
-<span>100 سؤال · كلمات أساسية للمبتدئين</span>
+<button class="level-btn medium" onclick="startLevel(0)">
+📗 المرحلة المتوسطة
+<span>100 سؤال · كلمات أكثر تنوعًا</span>
 </button>
 
-<button class="level-btn medium" id="mediumBtn" onclick="startLevel(1)" disabled>
-📗 المرحلة المتوسطة 🔒
-<span id="mediumNote">تُفتح بعد إنهاء المرحلة السهلة</span>
-</button>
-
-<button class="level-btn hard" id="hardBtn" onclick="startLevel(2)" disabled>
+<button class="level-btn hard" id="hardBtn" onclick="startLevel(1)" disabled>
 📕 المرحلة الصعبة 🔒
 <span id="hardNote">تُفتح بعد إنهاء المرحلة المتوسطة</span>
 </button>
@@ -101,10 +94,10 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation}
 </div>
 
 <main id="questionCard" class="question-card hidden">
-<div class="level-label" id="levelLabel">المرحلة السهلة</div>
-<div class="emoji" id="emoji">🌟</div>
+<div class="level-label" id="levelLabel">المرحلة المتوسطة</div>
+<div class="emoji" id="emoji">📗</div>
 <p class="instruction">استمع إلى الكلمة، ثم اختر معناها بالعربية</p>
-<div class="word" id="word">Apple</div>
+<div class="word" id="word">Teacher</div>
 
 <button class="speak-btn" onclick="speakWord()">🔊 استمع إلى الكلمة</button>
 
@@ -134,109 +127,6 @@ function parseWords(raw){
     return {en:p[0].trim(),ar:p[1].trim()};
   });
 }
-
-const easyRaw=`
-Apple|تفاحة
-Book|كتاب
-Cat|قطة
-Dog|كلب
-Sun|شمس
-Moon|قمر
-Star|نجمة
-Ball|كرة
-Boy|ولد
-Girl|بنت
-Man|رجل
-Woman|امرأة
-Baby|رضيع
-Water|ماء
-Milk|حليب
-Bread|خبز
-Egg|بيضة
-Rice|أرز
-Cup|كوب
-Plate|صحن
-Spoon|ملعقة
-Fork|شوكة
-Door|باب
-Key|مفتاح
-Bed|سرير
-Room|غرفة
-House|منزل
-Car|سيارة
-Bus|حافلة
-Bookshop|مكتبة بيع الكتب
-School|مدرسة
-Class|صف
-Teacher|معلم
-Student|طالب
-Pen|قلم
-Pencil|قلم رصاص
-Bag|حقيبة
-Desk|مكتب
-Paper|ورق
-Hand|يد
-Head|رأس
-Eye|عين
-Ear|أذن
-Nose|أنف
-Mouth|فم
-Hair|شعر
-Face|وجه
-Arm|ذراع
-Leg|ساق
-Foot|قدم
-Finger|إصبع
-Mother|أم
-Father|أب
-Brother|أخ
-Sister|أخت
-Friend|صديق
-Family|عائلة
-Baby|طفل رضيع
-Grandmother|جدة
-Grandfather|جد
-Red|أحمر
-Blue|أزرق
-Green|أخضر
-Yellow|أصفر
-Black|أسود
-White|أبيض
-Pink|وردي
-Orange|برتقالي
-One|واحد
-Two|اثنان
-Three|ثلاثة
-Four|أربعة
-Five|خمسة
-Six|ستة
-Seven|سبعة
-Eight|ثمانية
-Nine|تسعة
-Ten|عشرة
-Big|كبير
-Small|صغير
-Good|جيد
-Bad|سيئ
-Happy|سعيد
-Sad|حزين
-Hot|حار
-Cold|بارد
-Fast|سريع
-Slow|بطيء
-Eat|يأكل
-Drink|يشرب
-Sleep|ينام
-Read|يقرأ
-Write|يكتب
-Run|يركض
-Walk|يمشي
-Sit|يجلس
-Stand|يقف
-Play|يلعب
-Open|يفتح
-Close|يغلق
-`.trim();
 
 const mediumRaw=`
 Teacher|معلم
@@ -315,7 +205,7 @@ Explain|يشرح
 Ask|يسأل
 Answer|يجيب
 Learn|يتعلم
-Teach|يعلم
+Teach|علم
 Practice|يتدرب
 Improve|يحسن
 Beautiful|جميل
@@ -454,7 +344,7 @@ Determine|يحدد
 Distinguish|يميز
 Emphasize|يؤكد
 Essential|أساسي
-Evaluate|يقيم
+Evaluate|قيم
 Eventually|في نهاية المطاف
 Exaggerate|يبالغ
 Expand|يوسع
@@ -477,13 +367,12 @@ Valid|صالح
 `.trim();
 
 const levels=[
-{name:"المرحلة السهلة",words:parseWords(easyRaw)},
-{name:"المرحلة المتوسطة",words:parseWords(mediumRaw)},
-{name:"المرحلة الصعبة",words:parseWords(hardRaw)}
+  {name:"المرحلة المتوسطة",words:parseWords(mediumRaw)},
+  {name:"المرحلة الصعبة",words:parseWords(hardRaw)}
 ];
 
 let levelIndex=0,questions=[],currentIndex=0,score=0,mistakes=0,answered=false,lastResult="";
-let completed=[false,false,false];
+let completed=[false,false];
 const $=id=>document.getElementById(id);
 
 function shuffle(array){
@@ -496,12 +385,9 @@ function shuffle(array){
 }
 
 function updateHome(){
-  $("mediumBtn").disabled=!completed[0];
-  $("hardBtn").disabled=!completed[1];
-  $("mediumNote").textContent=completed[0]?"100 سؤال · كلمات أكثر تنوعًا":"تُفتح بعد إنهاء المرحلة السهلة";
-  $("hardNote").textContent=completed[1]?"100 سؤال · مفردات متقدمة":"تُفتح بعد إنهاء المرحلة المتوسطة";
-  if(completed[0])$("mediumBtn").innerHTML="📗 المرحلة المتوسطة<span>100 سؤال · كلمات أكثر تنوعًا</span>";
-  if(completed[1])$("hardBtn").innerHTML="📕 المرحلة الصعبة<span>100 سؤال · مفردات متقدمة</span>";
+  $("hardBtn").disabled=!completed[0];
+  $("hardNote").textContent=completed[0]?"100 سؤال · مفردات متقدمة":"تُفتح بعد إنهاء المرحلة المتوسطة";
+  if(completed[0])$("hardBtn").innerHTML="📕 المرحلة الصعبة<span>100 سؤال · مفردات متقدمة</span>";
 }
 
 function showOnly(id){
@@ -535,7 +421,7 @@ function loadQuestion(){
   $("mistakes").textContent=mistakes;
   $("progressBar").style.width=(currentIndex/100*100)+"%";
   $("levelLabel").textContent=levels[levelIndex].name;
-  $("emoji").textContent=["🟢","📗","📕"][levelIndex];
+  $("emoji").textContent=["📗","📕"][levelIndex];
   $("word").textContent=q.en;
   $("feedback").textContent="";
   $("feedback").className="feedback";
@@ -606,16 +492,16 @@ function finishLevel(){
 
   const percent=score;
   completed[levelIndex]=true;
-  lastResult=levelIndex<2?"next":"replay";
+  lastResult=levelIndex<1?"next":"replay";
   $("resultEmoji").textContent="🏆🎉";
   $("resultTitle").textContent="أحسنت يا بطل!";
   $("resultText").textContent="أنهيت "+levels[levelIndex].name+". أجبت إجابة صحيحة عن "+score+" من 100 سؤال. نتيجتك "+percent+"%. عدد المحاولات الخاطئة: "+mistakes+".";
 
-  if(levelIndex<2){
-    $("resultText").textContent+=" أصبحت المرحلة التالية متاحة لك!";
-    $("resultAction").textContent="الانتقال إلى المرحلة التالية ➡️";
+  if(levelIndex<1){
+    $("resultText").textContent+=" أصبحت المرحلة التالية (الصعبة) متاحة لك!";
+    $("resultAction").textContent="الانتقال إلى المرحلة الصعبة ➡️";
   }else{
-    $("resultText").textContent+=" لقد أنهيت المراحل الثلاث!";
+    $("resultText").textContent+=" لقد أنهيت التحدي كاملاً بجميع مراحله!";
     $("resultAction").textContent="إعادة المرحلة الصعبة 🔄";
   }
   updateHome();
@@ -624,11 +510,10 @@ function finishLevel(){
 
 function resultAction(){
   if(lastResult==="next")startLevel(levelIndex+1);
-  else startLevel(2);
+  else startLevel(1);
 }
 
 updateHome();
 </script>
 </body>
 </html>
-```
